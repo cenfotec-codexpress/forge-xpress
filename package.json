@@ -1,0 +1,12 @@
+{
+  "name": "forge-xpress",
+  "version": "1.0",
+  "description": "A simple app to generate fake records for Viajeros Solos",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "Enrique Alpízar",
+  "license": "MIT"
+}
