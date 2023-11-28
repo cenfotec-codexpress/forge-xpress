@@ -2,6 +2,7 @@
   "name": "forge-xpress",
   "version": "1.0",
   "description": "A simple app to generate fake records for Viajeros Solos",
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js"
