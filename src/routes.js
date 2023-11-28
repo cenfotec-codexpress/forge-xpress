@@ -26,7 +26,7 @@ router.get("/businesses", async (req, res) => {
 
   if (approved != null) {
     businesses = businesses.map((business) => {
-      business.isApproved = approved;
+      business.isApproved = !!approved;
       return business;
     });
   }
