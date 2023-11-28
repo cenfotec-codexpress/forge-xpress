@@ -11,6 +11,7 @@
   "author": "Enrique Alpízar",
   "license": "MIT",
   "dependencies": {
-    "@faker-js/faker": "^8.3.1"
+    "@faker-js/faker": "^8.3.1",
+    "bcrypt": "^5.1.1"
   }
 }
