@@ -11,7 +11,11 @@ export default class UserForge {
       identification: this.generateNationalLikeId(),
       firstName: faker.person.firstName(),
       lastName: faker.person.lastName(),
-      dateOfBirth: faker.date.birthdate().getTime().toString(),
+      dateOfBirth: {
+        $date: {
+          $numberLong: this.generateDateOfBirth(),
+        },
+      },
       email: generateEmail(),
       passwordHash: hash,
       passwordSalt: salt,
@@ -33,6 +37,13 @@ export default class UserForge {
       salt,
       hash,
     };
+  }
+
+  static generateDateOfBirth() {
+    return faker.date
+      .between({ from: "1950-01-01", to: "2003-12-31" })
+      .getTime()
+      .toString();
   }
 
   static generateRandomPaymentMethods() {
