@@ -1,6 +1,11 @@
 import { fakerES as faker } from "@faker-js/faker";
 import bcrypt from "bcrypt";
-import { generateEmail, generateObjectId } from "../shared.js";
+import {
+  generateEmail,
+  generateObjectId,
+  generatePhoneNumber,
+  generateRandomLocalAddress,
+} from "../shared.js";
 
 export default class UserForge {
   static async create() {
@@ -19,9 +24,9 @@ export default class UserForge {
       email: generateEmail(),
       passwordHash: hash,
       passwordSalt: salt,
-      homeAddress: this.generateRandomLocalAddress(),
+      homeAddress: generateRandomLocalAddress(),
       phoneNumber: {
-        $numberInt: faker.number.int({ min: 80000000, max: 89999999 }),
+        $numberInt: generatePhoneNumber(),
       },
       role: "Traveler",
       paymentMethods: this.generateRandomPaymentMethods(),
@@ -78,24 +83,5 @@ export default class UserForge {
       min: 100,
       max: 999,
     })}`;
-  }
-
-  static generateRandomLocalAddress() {
-    const addresses = [
-      "San José, San José, Costa Rica",
-      "Escazú, San José, Costa Rica",
-      "Desamparados, San José, Costa Rica",
-      "Alajuela, Alajuela, Costa Rica",
-      "Cartago, Cartago, Costa Rica",
-      "Heredia, Heredia, Costa Rica",
-      "Liberia, Guanacaste, Costa Rica",
-      "Nicoya, Guanacaste, Costa Rica",
-      "Puntarenas, Puntarenas, Costa Rica",
-      "Quepos, Puntarenas, Costa Rica",
-      "Limón, Limón, Costa Rica",
-      "Cahuita, Limón, Costa Rica",
-    ];
-
-    return faker.helpers.arrayElement(addresses);
   }
 }
