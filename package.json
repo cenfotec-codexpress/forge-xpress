@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "Enrique Alpízar",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1"
+  }
 }
